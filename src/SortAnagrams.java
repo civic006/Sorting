@@ -2,48 +2,14 @@ import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.LinkedList;
 
-public class MainApp {
+public class SortAnagrams {
 
 	public static void main(String args[]) {
-
-		// Sort two sorted arrays
-		int[] A = { 2, 3, 4, 7 };
-		int[] B = { 1, 5, 8 };
-		System.out.println(Arrays.toString(sortTwoArrays(A, B)));
 
 		// Sort anagrams
 		String[] simpleAnagramArray = { "bee", "milk", "tree", "klmi" };
 		System.out.println(Arrays.toString(sortAnagrams(simpleAnagramArray)));
 	}
-
-	// ---------------------------------------------------------------------------------
-	// Sort two sorted arrays simple example
-
-	// Sort two sorted arrays where A has a buffer for B.
-	public static int[] sortTwoArrays(int[] A, int[] B) {
-
-		int currentIndex = A.length + B.length - 1;
-		int currentAIndex = A.length - 1;
-		int currentBIndex = B.length - 1;
-
-		// Setup problem so A has buffer at end
-		A = Arrays.copyOf(A, currentIndex + 1);
-
-		while (currentBIndex >= 0) {
-			if (currentAIndex >= 0 && A[currentAIndex] > B[currentBIndex]) {
-				A[currentIndex] = A[currentAIndex];
-				currentAIndex--;
-			} else {
-				A[currentIndex] = B[currentBIndex];
-				currentBIndex--;
-			}
-			currentIndex--;
-		}
-
-		return A;
-	}
-
-	// ---------------------------------------------------------------------------------
 
 	// ---------------------------------------------------------------------------------
 	// Sort an array of strings so that all anagrams are next to each other
@@ -79,5 +45,4 @@ public class MainApp {
 		return new String(myString);
 	}
 	// ---------------------------------------------------------------------------------
-
 }
